@@ -6,9 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
@@ -56,19 +58,19 @@
                         </li>
                         <!-- Tài khoản -->
                         <?php if (!isset($_SESSION['id']) || empty($_SESSION['id'])) { ?>
-                            <li><a href="signIn.php">Đăng nhập</a></li>
-                            <li><a href="signUp.php">Đăng kí</a></li>
+                        <li><a href="signIn.php">Đăng nhập</a></li>
+                        <li><a href="signUp.php">Đăng kí</a></li>
                         <?php } else { ?>
-                            <li>
-                                <a href="#" class="desktop-link">Tài khoản</a>
-                                <input type="checkbox" id="show-services">
-                                <label for="show-services">Tài khoản</label>
-                                <ul>
-                                    <li><a href="shopping_carts.php">Kiểm tra đơn hàng</a></li>
-                                    <li><a href="user/infoUser.php">Quản lý tài khoản</a></li>
-                                    <li><a href="logOut.php">Đăng xuất</a></li>
-                                </ul>
-                            </li>
+                        <li>
+                            <a href="#" class="desktop-link">Tài khoản</a>
+                            <input type="checkbox" id="show-services">
+                            <label for="show-services">Tài khoản</label>
+                            <ul>
+                                <li><a href="shopping_carts.php">Kiểm tra đơn hàng</a></li>
+                                <li><a href="user/infoUser.php">Quản lý tài khoản</a></li>
+                                <li><a href="logOut.php">Đăng xuất</a></li>
+                            </ul>
+                        </li>
                         <?php } ?>
 
                         <li><a href="contact.php">Liên hệ </a></li>
@@ -104,23 +106,32 @@
     </div>
     <div class="main_body">
         <div class="banner_1">
-            <img class="img_bnn1" src="https://thuthuatnhanh.com/wp-content/uploads/2022/06/background-banner-cuc-dep.jpg" alt="">
+            <img class="img_bnn1"
+                src="https://thuthuatnhanh.com/wp-content/uploads/2022/06/background-banner-cuc-dep.jpg" alt="">
         </div>
         <div class="local">
             <div class="div_contain">
-                <img class="img_div" src="https://kynghexanh.com/wp-content/uploads/2022/03/su-menh-ky-nghe-xanh.jpg" alt="">
+                <img class="img_div" src="https://kynghexanh.com/wp-content/uploads/2022/03/su-menh-ky-nghe-xanh.jpg"
+                    alt="">
                 <h4>Tầm nhìn của chúng tôi</h4>
-                <p>Đưa website trở thành một kênh mua sắm online uy tín, chất lượng với những sản phẩm cập nhật mới nhất của các mode thời trang trên thị trường</p>
+                <p>Đưa website trở thành một kênh mua sắm online uy tín, chất lượng với những sản phẩm cập nhật mới nhất
+                    của các mode thời trang trên thị trường</p>
             </div>
             <div class="div_contain">
-                <img class="img_div" src="https://ketoanducminh.edu.vn/uploads/News/pic/h%C3%A0nh_%C4%91%E1%BB%99ng.jpg" alt="">
+                <img class="img_div" src="https://ketoanducminh.edu.vn/uploads/News/pic/h%C3%A0nh_%C4%91%E1%BB%99ng.jpg"
+                    alt="">
                 <h4>Chúng tôi thực sự làm gì?</h4>
-                <p>Chúng tôi hiện tại vẫn đang cố gắng hoàn thiện tốt nhất trải nghiệm người dùng với website, cũng nhưng tính ổn định của website. Ngoài ra sản phẩm được bán trên web sẽ được chúng tôi cố gắng cập nhật thường xuyên.</p>
+                <p>Chúng tôi hiện tại vẫn đang cố gắng hoàn thiện tốt nhất trải nghiệm người dùng với website, cũng
+                    nhưng tính ổn định của website. Ngoài ra sản phẩm được bán trên web sẽ được chúng tôi cố gắng cập
+                    nhật thường xuyên.</p>
             </div>
             <div class="div_contain">
-                <img class="img_div" src="https://1boss.vn/uploads/details/2022/04/images/tam-nhin-su-menh-muc-tieu-cua-doanh-nghiep-4.jpg" alt="">
+                <img class="img_div"
+                    src="https://1boss.vn/uploads/details/2022/04/images/tam-nhin-su-menh-muc-tieu-cua-doanh-nghiep-4.jpg"
+                    alt="">
                 <h4>Lịch sử phát triển</h4>
-                <p>Được lên ý tưởng từ đầu tháng 10, website được phát triển qua 2 tháng với 2 phần nội dung quan trọng là Front-end và Backend được xây dựng bởi 4 thành viên của nhóm BTL.</p>
+                <p>Được lên ý tưởng từ đầu tháng 10, website được phát triển qua 2 tháng với 2 phần nội dung quan trọng
+                    là Front-end và Backend được xây dựng bởi 4 thành viên của nhóm BTL.</p>
             </div>
         </div>
         <hr size="3px">
@@ -128,24 +139,21 @@
             <h2>Đội ngũ của chúng tôi</h2>
             <div class="team_info">
                 <div class="member">
-                    <img src="https://scontent.fsgn5-13.fna.fbcdn.net/v/t39.30808-6/318127248_680007020187067_1227580993922125182_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=KYlekzU0wcYAX8cYxmK&tn=r-pmSfXqeNpsLh83&_nc_ht=scontent.fsgn5-13.fna&oh=00_AfA24xNjTODgdgPQMkXj0eXPwqKNqLjlFNNA_IcYDF_sgw&oe=6390FC1C" alt="">
-                    <h4>Nguyễn Trọng Vinh</h4>
+                    <img src="https://i.ibb.co/ckXr402/me.jpg" alt="">
+                    <h4>Ngô Văn Phương</h4>
                     <p>Thành viên phát triển FE web</p>
                 </div>
                 <div class="member">
-                    <img src="https://bom.so/c7vRNN" alt="">
-                    <h4>Ngô Nhật Thiên</h4>
+                    <img src="https://scontent.fbmv1-1.fna.fbcdn.net/v/t1.6435-9/169127398_469862370992377_7915895663403411859_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=be3454&_nc_ohc=pAHL6_SkqKoAX8dD1sA&_nc_ht=scontent.fbmv1-1.fna&oh=00_AfBbmVbUibrPIsDraYf2waw-6E4nE8g7ql9IhBwMSQRy_g&oe=659715D0"
+                        alt="">
+                    <h4>Trần Nhân Nghĩa</h4>
                     <p>Thành viên phát triển BE web</p>
                 </div>
                 <div class="member">
-                    <img src="https://f8-zpcloud.zdn.vn/949171481642285573/404946901547cc199556.jpg?fbclid=IwAR2B7Ll1w2eVbVDqrK7QpGTZyQ9d7tHC_EUOb8u78vsbZj-tDQVbpPYlehY" alt="">
-                    <h4>Phạm Đình Văn</h4>
+                    <img src="https://scontent.fbmv1-1.fna.fbcdn.net/v/t39.30808-6/380599227_2128074180857355_5817079871328770092_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=cciYMWKA_bkAX8i0W0V&_nc_ht=scontent.fbmv1-1.fna&oh=00_AfBE25jMJIw2MsSxxsmpXBmFvnd_Yxn5DaDeS1gDa5PCuQ&oe=6573B7D7"
+                        alt="">
+                    <h4>Cao Điệp Phi</h4>
                     <p>Thành viên phát triển Content, Idea web </p>
-                </div>
-                <div class="member">
-                    <img src="https://scontent.fsgn5-12.fna.fbcdn.net/v/t39.30808-6/301224141_1783499561986987_1374075145988007315_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qPPYQF7noYoAX8NLQEH&_nc_ht=scontent.fsgn5-12.fna&oh=00_AfDkiUbgp261eOkoN4pQP7mC122hdQhwLvxrlkQXJQYU8g&oe=63915779" alt="">
-                    <h4>Trần Tiến Đạt</h4>
-                    <p>Thành viên phát triển Content, Idea web</p>
                 </div>
             </div>
         </div>
@@ -174,7 +182,8 @@
             <div class="left box">
                 <h2>About us</h2>
                 <div class="content">
-                    <p>Fashionista - là một trang web mua sắm thời trang online, nơi thỏa mãn đam mê mua sắm bất tận của bạn...!!!</p>
+                    <p>Fashionista - là một trang web mua sắm thời trang online, nơi thỏa mãn đam mê mua sắm bất tận của
+                        bạn...!!!</p>
                 </div>
             </div>
             <div class="center box">
@@ -186,28 +195,29 @@
                     </div>
                     <div class="phone">
                         <span class="fas fa-phone-alt"></span>
-                        <span class="text">+0969379924</span>
+                        <span class="text">0889202626</span>
                     </div>
                     <div class="email">
                         <span class="fas fa-envelope"></span>
-                        <span class="text">vinhtrong782002@gmail.com</span>
+                        <span class="text">nghiatranvth@gmail.com</span>
                     </div>
                 </div>
             </div>
             <div class="right box">
                 <h2>Contact us</h2>
                 <div class="social">
-                    <a href="https://www.facebook.com/vinh.nguyentrong.1291"><span class="fab fa-facebook-f"></span></a>
+                    <a href="https://www.facebook.com/nghianehhh/"><span class="fab fa-facebook-f"></span></a>
                     <a href="#"><span class="fab fa-twitter"></span></a>
-                    <a href="#"><span class="fab fa-instagram"></span></a>
-                    <a href="https://www.youtube.com/channel/UCP_rD_OjsAr3-0qFZVxiDVg"><span class="fab fa-youtube"></span></a>
+                    <a href="https://www.instagram.com/trnhnghia/"><span class="fab fa-instagram"></span></a>
+                    <a href="https://www.youtube.com/channel/UC-_Z40ozbAAT4BTmmV0ypyQ"><span
+                            class="fab fa-youtube"></span></a>
                 </div>
             </div>
     </footer>
     <div class="bottom">
         <center>
-            <span class="credit">Created By <a href="#">TeamWeb_KTMT_HCMUT</a> | </span>
-            <span class="far fa-copyright"></span><span> 2022 All rights reserved.</span>
+            <span class="credit">Created By <a href="#">TeamWeb_KHMT_HCMUT</a> | </span>
+            <span class="far fa-copyright"></span><span> 2023 All rights reserved.</span>
         </center>
     </div>
 
