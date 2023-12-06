@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 06, 2022 at 05:48 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 06, 2023 at 01:08 AM
+-- Server version: 11.1.3-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,8 +30,8 @@ USE `btl`;
 
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL,
-  `firstName` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `lastName` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `firstName` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `lastName` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `birthday` date NOT NULL,
   `address` text NOT NULL,
   `phone` varchar(12) DEFAULT NULL,
@@ -40,19 +40,20 @@ CREATE TABLE `accounts` (
   `gender` varchar(8) NOT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`id`, `firstName`, `lastName`, `birthday`, `address`, `phone`, `email`, `password`, `gender`, `is_admin`, `created_at`) VALUES
-(2, 'Ngô', 'Nhật Thiên', '2002-02-21', 'KTX khu A, Thủ Đức, HCM', '0369359121', 'ngonhatthien2@gmail.com', '123456', 'male', 0, '2022-11-28 09:55:32'),
-(3, 'Ngô', 'Nhật Thiên', '2012-11-12', '', '0', 'ngonhatthien02@gmail.com', '12345.', 'male', 1, '2022-11-28 09:55:32'),
-(4, 'Ngô', 'Thiên', '0000-00-00', '', '0', 'ngonhatthien12@gmail.com', '9999', 'male', 0, '2022-11-28 14:51:59'),
-(17, 'Tôi là', 'Admin', '2002-02-12', '', '0978768008', 'admin@gmail.com', '12345', 'other', 1, '2022-11-29 15:48:45'),
-(18, 'Ngô', 'Nhật Thiên', '0000-00-00', '', '0', 'viaivianh@gmail.com', 'Thiennn', 'male', 1, '2022-11-30 03:39:26'),
-(23, 'Ngô', 'Nhật Thiên', '2002-02-21', 'KTX khu A', '0369359121', 'ngothien@gmail.com', 'Thienn', 'male', 0, '2022-12-04 12:25:16');
+(2, 'Trần ', 'Nhân Nghĩa', '2002-02-21', 'KTX khu A, Thủ Đức, HCM', '0369359121', 'nghiatranvth@gmail.com', '123456', 'male', 0, '2023-11-28 09:55:32'),
+(3, 'Trần ', 'Nhân Nghĩa', '2012-11-12', '', '0', 'nghiatranvth@gmail.com', '12345.', 'male', 1, '2023-11-28 09:55:32'),
+(4, 'Nhân', 'Nghĩa', '0000-00-00', '', '0', 'hehehe@gmail.com', '9999', 'male', 0, '2023-11-28 14:51:59'),
+(17, 'Tôi là', 'Admin', '2002-02-12', '', '0978768008', 'admin@gmail.com', '12345', 'other', 1, '2023-11-29 15:48:45'),
+(18, 'Trần', 'Nghĩa', '0000-00-00', '', '0', 'viaivianh@gmail.com', 'Nghianehhh', 'male', 1, '2023-11-30 03:39:26'),
+(23, 'Nghĩa', 'Béo', '2002-02-21', 'KTX khu A', '0889202626', 'hocnguqua@gmail.com', 'Thienn', 'male', 0, '2023-12-04 12:25:16'),
+(26, 'Trần Nhân', 'Nghĩa', '2002-01-12', '45 Tân Lập, Đông Hòa, Dĩ An, Bình Dương', '0889202626', 'nghia.trankhongbibede@hcmut.edu.vn', '1111111', 'male', 1, '2023-12-05 23:30:01');
 
 -- --------------------------------------------------------
 
@@ -66,17 +67,19 @@ CREATE TABLE `comments` (
   `pro_id` int(11) NOT NULL,
   `cmt_content` text NOT NULL,
   `created_at` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`cmt_id`, `user_id`, `pro_id`, `cmt_content`, `created_at`) VALUES
-(1, 2, 47, 'Bộ đồ này đẹp lắm nha mọi người!!!', '2022-11-30'),
-(3, 2, 1, 'Quá đẹp', '2022-11-30'),
-(4, 17, 1, 'Chào mọi người', '2022-12-01'),
-(7, 2, 49, 'Bộ này bình thường', '2022-12-05');
+(1, 2, 47, 'Bộ đồ này đẹp lắm nha mọi người!!!', '2023-11-30'),
+(3, 2, 1, 'Quá đẹp', '2023-11-30'),
+(4, 17, 1, 'Chào mọi người', '2023-12-01'),
+(7, 2, 49, 'Bộ này bình thường', '2023-12-05'),
+(8, 23, 47, 'hello', '2023-12-06'),
+(9, 23, 1, 'Sản phẩm quá chất lượng\r\n', '2023-12-06');
 
 -- --------------------------------------------------------
 
@@ -95,16 +98,16 @@ CREATE TABLE `orders` (
   `pro_color` varchar(11) NOT NULL,
   `pro_sale` int(4) NOT NULL,
   `created_at` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`order_id`, `pro_id`, `user_id`, `pro_name`, `pro_price`, `pro_quantify`, `pro_size`, `pro_color`, `pro_sale`, `created_at`) VALUES
-(18, 1, 19, 'Giày Nike Air Force 1', 400000, 2, '', '', 5, '2022-12-04'),
-(19, 47, 2, 'Áo thun tay lỡ The Bad God Black Fire tee', 150000, 1, 'S', 'Xanh', 10, '2022-12-05'),
-(20, 1, 2, 'Giày Nike Air Force 1', 400000, 1, 'M', 'Trắng', 5, '2022-12-05');
+(18, 1, 19, 'Giày Nike Air Force 1', 400000, 2, '', '', 5, '2023-12-04'),
+(19, 47, 2, 'Áo thun tay lỡ The Bad God Black Fire tee', 150000, 1, 'S', 'Xanh', 10, '2023-12-05'),
+(20, 1, 2, 'Giày Nike Air Force 1', 400000, 1, 'M', 'Trắng', 5, '2023-12-05');
 
 -- --------------------------------------------------------
 
@@ -115,46 +118,46 @@ INSERT INTO `orders` (`order_id`, `pro_id`, `user_id`, `pro_name`, `pro_price`, 
 CREATE TABLE `products` (
   `pro_id` int(11) NOT NULL,
   `categoryKind` varchar(10) NOT NULL,
-  `pro_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `pro_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `forGender` varchar(20) NOT NULL,
   `price_buy` int(11) NOT NULL,
   `price_sell` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `pro_description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `pro_description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `sell_percent` int(4) NOT NULL,
   `created_at` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`pro_id`, `categoryKind`, `pro_name`, `forGender`, `price_buy`, `price_sell`, `image`, `pro_description`, `sell_percent`, `created_at`) VALUES
-(1, 'giay', 'Giày Nike Air Force 1', 'male', 300000, 400000, '	https://giaysneakerhcm.com/wp-content/uploads/2020/03/giay-nike-air-force-1-white-replica-1-1-o-hcm-3.jpg', '	Đôi giày màu trắng là một phụ kiện phải có trong tủ đồ của các bạn trẻ. Bởi tính ứng dụng cao trong thời trang, giày trắng thường giúp chúng ta dễ phối đồ hơn và có thể mang phù hợp với bất cứ dịp nào (đi học, đi chơi, ...). 365.giay.store đảm bảo mang lại cho các bạn một đôi giày trắng vừa xinh vừa hời. Ngại gì không tậu ngay một đôi nào!!', 5, '2022-12-04'),
-(15, 'giay', 'Giày thể thao nữ - giày sneaker nữ mầu trắng đế cao ST008W	', 'female', 200000, 250000, 'https://salt.tikicdn.com/cache/w1200/ts/product/c6/db/73/72599b97949a1687c076e8fa4f072997.jpg', 'Đôi giày được làm từ đế cao su cao cấp Da PU bền đẹp', 10, '2022-12-04'),
-(16, 'giay', 'Giày MLB Big Ball Chunky P Boston 32SHC2111-43I Size 235	', 'male', 1000000, 1200000, 'https://cdn.vuahanghieu.com/unsafe/0x500/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/product/2021/03/giay-mlb-big-ball-chunky-p-boston-size-235-604adf7be682f-12032021102651.png', 'THÔNG TIN SẢN PHẨM Giày sneaker MLB được làm từ lớp da cao cấp với đế độn 2 lớp vô cùng êm và chắc chắn. Ảnh và video do shop tự chụp và quay 100% nên shop cam kết ảnh thật và giày nhận được đến với khách hàng sẽ giống như mẫu ảnh. 99shoes hy vọng sẽ mang đến cho khách hàng những đôi giày chất lượng nhất. Nếu khách mua làm quà tặng thì hãy nhắn tin cho shop để shop viết thiệp tặng cho người đó nha, ngoài ra còn có những món quà siêu yêu nữa ạ', 6, '2022-12-04'),
-(17, 'giay', 'Giày Nike Jordan đen', 'male', 25000, 300000, 'https://cdn.tgdd.vn//News/0//bai-viet-ve-giay-4-720x426-2.jpg', '? Thông tin sản phẩm: ✔️ Chất lượng tốt nhất trong tầm giá ✔️ Form đẹp chuẩn : Màu sắc giống đến 98 °/ₒ ; ✔️ Chất liệu da + da lộn + vải mesh ✔️ Logo Mông in dập chìm. ✔️ Lưỡi gà cao dày dặn; swoosh sắc nét; Mông mũi làm đẹp ✔️ Tem QR CODE Có thể check mã 2D ✔️ Đế 2 lớp khâu chỉ đều ✔️ Full box + accessories ✔️ Mẫu này bạn mang đúng hoặc up 1 size đối với chân bè', 8, '2022-12-04'),
-(18, 'giay', 'GIÀY THỂ THAO NAM TRẮNG 1', 'male', 140000, 179000, 'https://cf.shopee.vn/file/ca1b7418648a8044f737ed6879e21cb2', 'Đôi giày màu trắng là một phụ kiện phải có trong tủ đồ của các bạn trẻ. Bởi tính ứng dụng cao trong thời trang, giày trắng thường giúp chúng ta dễ phối đồ hơn và có thể mang phù hợp với bất cứ dịp nào (đi học, đi chơi, ...). 365.giay.store đảm bảo mang lại cho các bạn một đôi giày trắng vừa xinh vừa hời. Ngại gì không tậu ngay một đôi nào!! - THÔNG TIN SẢN PHẨM: + Chất liệu giày: da sần, da trơn nhẵn. + Màu: trắng + Size: từ 36 đến 43 (các bạn tham khảo thêm bảng size để chọn được một đôi giày ưng ý nhất nhé) + Chiều cao: đế cao 2,5 cm + Trọng lượng Giày : 800g - Gợi ý các dịp phù hợp để sử dụng: + Mọi hoạt động hàng ngày (đi chơi, đi học, thể dục thể thao,...) + Phối với các trang phục năng động hoặc đồ âu đều dễ dàng và tôn dáng', 10, '2022-12-04'),
-(19, 'giay', 'Giày Thể Thao 1970s Cổ Cao', 'male', 250000, 285000, 'https://giaysneaker.com.vn/public/media/nhung-ly-do-nen-chon-mua-doi-giay-converse-co-cao.jpg', '? Chất liệu: da nhăn mềm mại không bám bẩn rất dễ vệ sinh. ? Đế: Đế đúc liền khối phần dưới có các đường họa tiết (chống trơn trượt) và in logo thương hiệu giày. ? Form: Form dáng chuẩn 1:1 , được gia công tỉ mỉ tạo độ hài hòa giữa phần thân và phần đế ? Giày hot trend, kiểu dáng đẹp sang chảnh dễ phối đồ có thể mang đi chơi, đi học dự tiệc , đi làm...', 5, '2022-12-04'),
-(20, 'giay', 'Giày thể thao nữ phối màu đen nâu cá tính', 'female', 100000, 120000, 'https://lzd-img-global.slatic.net/g/p/2ffa3b3494e8142fd0f51687086939af.jpg_720x720q80.jpg_.webp', 'MÔ TẢ SẢN PHẨM CƠ BẢN - Chất liệu: cao su, Vải - Màu sắc: Đen, Xanh - Kích thước: 35 - 40 - Chất liệu đế: Cao su lưu hóa - Cách mang: Xỏ, Cột dây - Thời gian giao hàng dự kiến cho sản phẩm này là từ 2-3 ngày ------------------------------- MÔ TẢ SẢN PHẨM CHI TIẾT - Phần thân trên chất da mềm cao cấp đi rất êm chân, mang thoải mái đi lại cả ngày - Phần Midsole (đế giữa) lót EVA êm ái - Phần Outsole (đế ngoài) là điểm quyết định của em giày này. Đế cao su đặc có độ bám dính, chống trơn trượt, ma sát tối đa, tạo độ êm ái thoải mái nên sản phẩm hết sức tuyệt vời cho những cô nàng có tính chất công việc phải đi lại cả ngày.', 10, '2022-12-04'),
-(21, 'mu', 'Nón Bucket Nam Nữ, Nón Tai Bèo Cao Cấp Form Unisex Phong Cách Cá Tính Bảo Hành 12 Tháng', 'female', 20000, 31500, 'https://cf.shopee.vn/file/db52cc9ffba0827dc23c40484987da2b_tn', 'MÔ TẢ SẢN PHẨM : - Form dáng chuẩn, chắc chắn - Thiết kế may thêu tinh tế, sắc sảo và thời trang - Kiểu dáng: phù hợp cả nam và nữ. Đa phong cách, gọn nhẹ, năng động - Mùa sử dụng: xuân, hạ, thu, đông', 28, '2022-12-04'),
-(22, 'mu', 'Nón tai bèo vành rộng thoáng khí chống thấm nước thời trang cho nam nữ', 'male', 55000, 60000, 'https://cf.shopee.vn/file/3d00b8803e2667ad7dc32dea5c03b6de_tn', 'Kích thước: Có thể điều chỉnh Chất liệu: Cotton Dành cho: cặp vợ chồng nam, nữ, sinh viên, nam và nữ Yếu tố phổ biến: nhẹ Hình dạng vành mũ: vành tròn Dịp thích hợp: mua sắm, đi dạo, hoạt động thể thao, đi leo núi ngoài trời Dành cho: trung tính / nam và nữ Dịp tặng quà thích hợp: sinh nhật, ngày lễ, hội chợ thương mại, lễ kỷ niệm, quà tặng doanh nghiệp, lễ khai trương, kỷ niệm giải thưởng, kế hoạch quan hệ công chúng Đặc điểm: chống nắng, chống lão hóa, chống nắng Thiết kế vành mũ: vành rộng Mùa thích hợp: hạ, xuân, thu, đông', 10, '2022-12-04'),
-(23, 'mu', 'Mũ tai bèo, mũ bucket thêu chữ thời trang mũ mùa đông mới cho nữ, hàng có sẵn', 'female', 120000, 125000, 'https://cf.shopee.vn/file/a317614b30b5a87e2de12474cdb157ca', 'Mũ tai bèo, mũ bucket thêu chữ thời trang mũ mùa đông mới cho nữ, hàng có sẵn - ➡ KÍCH THƯỚC : vành đầu 56-58 cm - ➡ CHẤT LIỆU : cotton dày dặn, thêu hạo tiết, in chữ - ➡ MÀU SẮC: Trắng, đen', 10, '2022-12-04'),
-(24, 'mu', 'Mũ vành rộng, nón đi biển chống nắng có dây chất lượng cao in chữ JACQUEMUS	', 'female', 120000, 150000, 'https://cf.shopee.vn/file/51b030d0a8c14638f9cfc02654b69343', 'Mũ vành rộng, nón đi biển chống nắng có dây chất lượng cao in chữ JACQUEMUS - ➡ Chất liệu: Cotton cao cấp - ➡ Kích thước: vòng đầu 54-58cm, có dây điều chỉnh size', 10, '2022-12-04'),
-(25, 'mu', 'Mũ bucket tai bèo nón cụp có vành Unisex nam nữ ulzzang chất vải kaki tốt phom đẹp kiểu chữ B vải dệt', 'female', 50000, 100000, 'https://cf.shopee.vn/file/ef35db5582185b2435c42fb284b00af1', 'HÔNG TIN SẢN PHẨM : Nón bucket vành tròn - MÀU SẮC: Nhiều Màu - Chất liệu: Cotton dày mịn, thoáng mát Nón Bucket Nón bucket vành tròn hoạ tiết thời trang nhiều màu, phong cách Ulzzang Hàn Quốc, form unisex cho nam và nữ', 15, '2022-12-04'),
-(26, 'mu', 'Mũ bucket Nhung Tăm thêu chữ Promissyou vành nón tai bèo tròn nam nữ thời trang SG102', 'female', 30000, 50000, 'https://cf.shopee.vn/file/0c282b442b35386992ea2cd943b63cc9', 'Chất liệu: Nhung tăm dày mịn, thoáng mát • Chu vi nón: 56-58cm, đội thoải mái, dễ chịu • Kiểu dáng: Phù hợp cả nam và nữ. Đa phong cách, gọn nhẹ, năng động • Màu sắc: Đen, kem, hồng, nâu, xanh dương, xanh lá • Đối tượng sử dụng: người lớn và trẻ em (cả nam và nữ) • Mùa sử dụng: xuân, hạ, thu, đông • Xuất xứ: Việt Nam', 10, '2022-12-04'),
-(27, 'mu', 'Mũ Bucket 1 Mặt Thêu Hình Vịt Con Đáng Yêu Chất Vải Kaki Thoáng Mát Kiểu Dáng Nón Tai Bèo Nam Nữ Thời Trang	', 'female', 20000, 30000, 'https://cf.shopee.vn/file/c6f67caf5aa8372d5ee49533f9139149', 'HÔNG TIN CHI TIẾT SẢN PHẨM NÓN TAI BÈO: ✔️ Màu sắc: ĐEN, TRẮNG ✔️ Chất vải kaki cotton dày mịn, thoáng mát ✔️ Size vòng đầu 54-57cm, chiều cao nón 9cm, vành rộng 6,5cm ✔️ Form Unisex dành cho cả nam và nữ, thiết kế kiểu nón bucket trơn đơn giản có 2 mặt dễ thay đổi màu rất tiện lợi', 2, '2022-12-04'),
-(28, 'mu', 'Mũ Lưỡi Trai Nam Nữ Jussy Fashion Nón Lưỡi Trai Memorie Chất Vải Nhung Gân Nhiều Màu Đẹp Phong Cách Nón Unisex	', 'male', 30000, 45000, 'https://lzd-img-global.slatic.net/g/p/e86f6d8c8995f41a441a404ef9804957.jpg_720x720q80.jpg_.webp', 'Nón Kết Hàn Quốc Dễ Thương ra mắt với nhiều màu: Đen, Trắng, Kaki, Vàng, Đỏ, Xanh, Be ✔️ Phù hợp với bất kỳ outfit nào của các bạn gái nữ tính, đáng yêu. ✔️ Chất liệu Nón lưỡi trai memorie: Chất vải nhung gân mềm mịn, thoáng mát, thấm hút mồ hôi, không hầm bí ✔️ Thông số sản phẩm: Size vòng đầu mũ lưỡi trai nhung từ 54-58 cm. Mũ Có Khóa Inox phía sau giúp tăng/giảm size nón tùy vòng đầu của bạn. .', 0, '2022-12-04'),
-(29, 'mu', 'Nón tai bèo chống nắng in hình luffy trong phim hoạt hình one piece', 'male', 40000, 50000, 'https://cf.shopee.vn/file/41161c5776c229f13a008e32b588c072_tn	', 'Mũ tai bèo chủ đề hoạt hình One Piece 100% cotton, mũ thêu chất lượng cao cho nam / mũ cho nữ, dropshipping Danh mục sản phẩm: Mũ tai bèo Chất liệu: Cotton Phương pháp dệt: satin Các yếu tố phổ biến: in Thích hợp : trung tính / nam và nữ áp dụng Nhóm tuổi: tuổi trưởng thành', 10, '2022-12-04'),
-(30, 'mu', 'Nón Beret  Phong Cách Hàn Quốc Thời Trang Xuân Thu Cho Nữ', 'female', 120000, 150000, 'https://cf.shopee.vn/file/abb311452c413260d6160c6e9afb17b6_tn', 'Hoa văn: Chữ cái; Chi tiết phong cách: Thêu; Đối tượng áp dụng: Chung; Phong cách: Mũ Peaked; Vải Tên thường: Bông; Nhãn hiệu: SZSYST;', 10, '2022-12-04'),
-(31, 'mu', 'mũ cối lao động hàng việt nam chất lượng cao', 'male', 60000, 100000, 'https://vn-live-01.slatic.net/p/3df11154757e894ea0ff75ec3a653633.png', '-chất dày dặn, đội mát mưa, rất bền -phù hợp cả trời nắng và mưa', 10, '2022-12-04'),
-(32, 'balo', 'Balo Ulzzang Hàn Quốc Thời Trang Đi Học Đi Chơi Phối Lưới Chống Thấm', 'female', 40000, 70000, 'https://cf.shopee.vn/file/9fbddeaf66b8e9a2d49bcc36a516c0dd', '​​​​​​​THÔNG TIN SẢN PHẨM: - ️Chất liệu : Vải Polyester 600PU Chống Thấm - ️Màu sắc : Đen, trắng, hồng, xanh da trời Shop có phận loại chi tiết màu vui lòng khách chọn ạ - Kích thước 35x40cm , đựng được tài liệu size A4 lớn, thích hợp cho học sinh, sinh viên thậm chí là người trẻ trung, năng động đang đi làm.', 0, '2022-12-04'),
-(33, 'balo', 'Balo Nữ Thời Trang Yuumy YBA28 Nữ Tính Nhiều Màu - Không Thấm Nước - Không Bong Tróc', 'female', 300000, 400000, 'https://cf.shopee.vn/file/sg-11134201-22090-54437uvf7uhv70', 'Chất liệu: da tổng hợp cao cấp (mềm mại, không bong tróc, không thấm nước ) Kích thước: dài 20.5cm x rộng 12cm x cao 27cm Trọng lượng: 762g Số ngăn: 4 ngăn ( 1 ngăn chính, 3 ngăn phụ ) Màu sắc: Màu Bò Đậm, Màu Bò Nhạt, Màu Nâu, Màu Đen Công dụng: balo phù hợp đi chơi, đi làm, đi shopping, đi du lịch. Bảo Hành: 1 Năm Thương hiệu: YUUMY Xuất xứ: Made in Viet Nam', 10, '2022-12-04'),
-(34, 'balo', 'Balo ulzzang hàn quốc kiểu dáng mới Fumiao', 'female', 120000, 200000, 'https://cf.shopee.vn/file/9a26b95653670d14a49b768bad9d2979', 'Kích thước : 32x11x43cm Chất liệu : là vải polyester không thấm nước Đặc điểm chung của vải chống thấm nước Nhờ lớp tráng chống thấm nước này mà vải có những tính năng vượt trội như: - Ít bám bẩn, dễ vệ sinh - Không nhăn nhàu - Có khả năng cản gió - Chống thấm nước vượt trội Màu sắc : nhiều màu Phù hợp với các bạn đi học và đi du lịch', 15, '2022-12-04'),
-(35, 'balo', 'Balo Thời Trang Da Mini Thắt Nơ Túi Đon Giản', 'female', 40000, 50000, 'https://salt.tikicdn.com/cache/w1200/ts/product/c0/fe/cf/ee1d9d349cf96a7b7d049557ce8910fb.jpg', 'chất liệu : bố canvas _ có 2 ngăn _ có khóa kéo và lót', 0, '2022-12-04'),
-(36, 'balo', 'Balo nữ dễ thương cặp đi học đựng laptop giá rẻ ba lô du lịch thời trang vải dù', 'female', 40000, 70000, 'https://cf.shopee.vn/file/81dc3ee7852219121c2b2ed9352baab4', 'ích thước cặp đi học nữ: rộng 35cm* cao 42cm* dày 12cm. - Ba lô nữ đi học được làm từ chất liệu: vải canvas 420. - Cặp đi học có 4 màu : Đen, hồng, xanh, tím. - Style: balo nữ giá rẻ phong cách thời trang Hàn Quốc Balo nữ dễ thương không những đi học mà còn đi chơi, đi du lịch được', 10, '2022-12-04'),
-(37, 'balo', 'BALO CHỐNG TRỘM PHONG CÁCH HÀN QUỐC CHO NỮ', 'female', 65000, 125000, 'https://cf.shopee.vn/file/de566fa44fe87dc3fc37e3bae5cae0ef', 'Kích thước ba lô: 31 X 34 X 14 cm Kích thước quai xách: 8cm Từ nay ra đường khỏi lo mất đồ nữa,\r\n    có em balo chống trộm này đi đâu cũng yên tâm hẳn luôn ạ', 0, '2022-12-04'),
-(38, 'balo', 'Ba Lô Đi Học / Du Lịch Sức Chứa Lớn Đơn Giản Phong Cách Nhật Bản', 'male', 160000, 205000, 'https://cf.shopee.vn/file/8517a2506855bfe540a454b07c42a0e9', 'Kết cấu: canvas Những người có thể áp dụng: Chung Yếu tố phổ biến: may Tình trạng sản phẩm: Còn mới\r\n\r\nKiểu đóng: Dây kéo Kích thước máy tính: 15 feet Hiệu suất chống thấm nước: không thấm nước Chất liệu lót: polyester', 8, '2022-12-04'),
+(1, 'giay', 'Giày Nike Air Force 1', 'male', 300000, 400000, '	https://giaysneakerhcm.com/wp-content/uploads/2020/03/giay-nike-air-force-1-white-replica-1-1-o-hcm-3.jpg', '	Đôi giày màu trắng là một phụ kiện phải có trong tủ đồ của các bạn trẻ. Bởi tính ứng dụng cao trong thời trang, giày trắng thường giúp chúng ta dễ phối đồ hơn và có thể mang phù hợp với bất cứ dịp nào (đi học, đi chơi, ...). 365.giay.store đảm bảo mang lại cho các bạn một đôi giày trắng vừa xinh vừa hời. Ngại gì không tậu ngay một đôi nào!!', 5, '2023-12-04'),
+(15, 'giay', 'Giày thể thao nữ - giày sneaker nữ mầu trắng đế cao ST008W	', 'female', 200000, 250000, 'https://salt.tikicdn.com/cache/w1200/ts/product/c6/db/73/72599b97949a1687c076e8fa4f072997.jpg', 'Đôi giày được làm từ đế cao su cao cấp Da PU bền đẹp', 10, '2023-12-04'),
+(16, 'giay', 'Giày MLB Big Ball Chunky P Boston 32SHC2111-43I Size 235	', 'male', 1000000, 1200000, 'https://cdn.vuahanghieu.com/unsafe/0x500/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/product/2021/03/giay-mlb-big-ball-chunky-p-boston-size-235-604adf7be682f-12032021102651.png', 'THÔNG TIN SẢN PHẨM Giày sneaker MLB được làm từ lớp da cao cấp với đế độn 2 lớp vô cùng êm và chắc chắn. Ảnh và video do shop tự chụp và quay 100% nên shop cam kết ảnh thật và giày nhận được đến với khách hàng sẽ giống như mẫu ảnh. 99shoes hy vọng sẽ mang đến cho khách hàng những đôi giày chất lượng nhất. Nếu khách mua làm quà tặng thì hãy nhắn tin cho shop để shop viết thiệp tặng cho người đó nha, ngoài ra còn có những món quà siêu yêu nữa ạ', 6, '2023-12-04'),
+(17, 'giay', 'Giày Nike Jordan đen', 'male', 25000, 300000, 'https://cdn.tgdd.vn//News/0//bai-viet-ve-giay-4-720x426-2.jpg', '? Thông tin sản phẩm: ✔️ Chất lượng tốt nhất trong tầm giá ✔️ Form đẹp chuẩn : Màu sắc giống đến 98 °/ₒ ; ✔️ Chất liệu da + da lộn + vải mesh ✔️ Logo Mông in dập chìm. ✔️ Lưỡi gà cao dày dặn; swoosh sắc nét; Mông mũi làm đẹp ✔️ Tem QR CODE Có thể check mã 2D ✔️ Đế 2 lớp khâu chỉ đều ✔️ Full box + accessories ✔️ Mẫu này bạn mang đúng hoặc up 1 size đối với chân bè', 8, '2023-12-04'),
+(18, 'giay', 'GIÀY THỂ THAO NAM TRẮNG 1', 'male', 140000, 179000, 'https://cf.shopee.vn/file/ca1b7418648a8044f737ed6879e21cb2', 'Đôi giày màu trắng là một phụ kiện phải có trong tủ đồ của các bạn trẻ. Bởi tính ứng dụng cao trong thời trang, giày trắng thường giúp chúng ta dễ phối đồ hơn và có thể mang phù hợp với bất cứ dịp nào (đi học, đi chơi, ...). 365.giay.store đảm bảo mang lại cho các bạn một đôi giày trắng vừa xinh vừa hời. Ngại gì không tậu ngay một đôi nào!! - THÔNG TIN SẢN PHẨM: + Chất liệu giày: da sần, da trơn nhẵn. + Màu: trắng + Size: từ 36 đến 43 (các bạn tham khảo thêm bảng size để chọn được một đôi giày ưng ý nhất nhé) + Chiều cao: đế cao 2,5 cm + Trọng lượng Giày : 800g - Gợi ý các dịp phù hợp để sử dụng: + Mọi hoạt động hàng ngày (đi chơi, đi học, thể dục thể thao,...) + Phối với các trang phục năng động hoặc đồ âu đều dễ dàng và tôn dáng', 10, '2023-12-04'),
+(19, 'giay', 'Giày Thể Thao 1970s Cổ Cao', 'male', 250000, 285000, 'https://giaysneaker.com.vn/public/media/nhung-ly-do-nen-chon-mua-doi-giay-converse-co-cao.jpg', '? Chất liệu: da nhăn mềm mại không bám bẩn rất dễ vệ sinh. ? Đế: Đế đúc liền khối phần dưới có các đường họa tiết (chống trơn trượt) và in logo thương hiệu giày. ? Form: Form dáng chuẩn 1:1 , được gia công tỉ mỉ tạo độ hài hòa giữa phần thân và phần đế ? Giày hot trend, kiểu dáng đẹp sang chảnh dễ phối đồ có thể mang đi chơi, đi học dự tiệc , đi làm...', 5, '2023-12-04'),
+(20, 'giay', 'Giày thể thao nữ phối màu đen nâu cá tính', 'female', 100000, 120000, 'https://lzd-img-global.slatic.net/g/p/2ffa3b3494e8142fd0f51687086939af.jpg_720x720q80.jpg_.webp', 'MÔ TẢ SẢN PHẨM CƠ BẢN - Chất liệu: cao su, Vải - Màu sắc: Đen, Xanh - Kích thước: 35 - 40 - Chất liệu đế: Cao su lưu hóa - Cách mang: Xỏ, Cột dây - Thời gian giao hàng dự kiến cho sản phẩm này là từ 2-3 ngày ------------------------------- MÔ TẢ SẢN PHẨM CHI TIẾT - Phần thân trên chất da mềm cao cấp đi rất êm chân, mang thoải mái đi lại cả ngày - Phần Midsole (đế giữa) lót EVA êm ái - Phần Outsole (đế ngoài) là điểm quyết định của em giày này. Đế cao su đặc có độ bám dính, chống trơn trượt, ma sát tối đa, tạo độ êm ái thoải mái nên sản phẩm hết sức tuyệt vời cho những cô nàng có tính chất công việc phải đi lại cả ngày.', 10, '2023-12-04'),
+(21, 'mu', 'Nón Bucket Nam Nữ, Nón Tai Bèo Cao Cấp Form Unisex Phong Cách Cá Tính Bảo Hành 12 Tháng', 'female', 20000, 31500, 'https://cf.shopee.vn/file/db52cc9ffba0827dc23c40484987da2b_tn', 'MÔ TẢ SẢN PHẨM : - Form dáng chuẩn, chắc chắn - Thiết kế may thêu tinh tế, sắc sảo và thời trang - Kiểu dáng: phù hợp cả nam và nữ. Đa phong cách, gọn nhẹ, năng động - Mùa sử dụng: xuân, hạ, thu, đông', 28, '2023-12-04'),
+(22, 'mu', 'Nón tai bèo vành rộng thoáng khí chống thấm nước thời trang cho nam nữ', 'male', 55000, 60000, 'https://cf.shopee.vn/file/3d00b8803e2667ad7dc32dea5c03b6de_tn', 'Kích thước: Có thể điều chỉnh Chất liệu: Cotton Dành cho: cặp vợ chồng nam, nữ, sinh viên, nam và nữ Yếu tố phổ biến: nhẹ Hình dạng vành mũ: vành tròn Dịp thích hợp: mua sắm, đi dạo, hoạt động thể thao, đi leo núi ngoài trời Dành cho: trung tính / nam và nữ Dịp tặng quà thích hợp: sinh nhật, ngày lễ, hội chợ thương mại, lễ kỷ niệm, quà tặng doanh nghiệp, lễ khai trương, kỷ niệm giải thưởng, kế hoạch quan hệ công chúng Đặc điểm: chống nắng, chống lão hóa, chống nắng Thiết kế vành mũ: vành rộng Mùa thích hợp: hạ, xuân, thu, đông', 10, '2023-12-04'),
+(23, 'mu', 'Mũ tai bèo, mũ bucket thêu chữ thời trang mũ mùa đông mới cho nữ, hàng có sẵn', 'female', 120000, 125000, 'https://cf.shopee.vn/file/a317614b30b5a87e2de12474cdb157ca', 'Mũ tai bèo, mũ bucket thêu chữ thời trang mũ mùa đông mới cho nữ, hàng có sẵn - ➡ KÍCH THƯỚC : vành đầu 56-58 cm - ➡ CHẤT LIỆU : cotton dày dặn, thêu hạo tiết, in chữ - ➡ MÀU SẮC: Trắng, đen', 10, '2023-12-04'),
+(24, 'mu', 'Mũ vành rộng, nón đi biển chống nắng có dây chất lượng cao in chữ JACQUEMUS	', 'female', 120000, 150000, 'https://cf.shopee.vn/file/51b030d0a8c14638f9cfc02654b69343', 'Mũ vành rộng, nón đi biển chống nắng có dây chất lượng cao in chữ JACQUEMUS - ➡ Chất liệu: Cotton cao cấp - ➡ Kích thước: vòng đầu 54-58cm, có dây điều chỉnh size', 10, '2023-12-04'),
+(25, 'mu', 'Mũ bucket tai bèo nón cụp có vành Unisex nam nữ ulzzang chất vải kaki tốt phom đẹp kiểu chữ B vải dệt', 'female', 50000, 100000, 'https://cf.shopee.vn/file/ef35db5582185b2435c42fb284b00af1', 'HÔNG TIN SẢN PHẨM : Nón bucket vành tròn - MÀU SẮC: Nhiều Màu - Chất liệu: Cotton dày mịn, thoáng mát Nón Bucket Nón bucket vành tròn hoạ tiết thời trang nhiều màu, phong cách Ulzzang Hàn Quốc, form unisex cho nam và nữ', 15, '2023-12-04'),
+(26, 'mu', 'Mũ bucket Nhung Tăm thêu chữ Promissyou vành nón tai bèo tròn nam nữ thời trang SG102', 'female', 30000, 50000, 'https://cf.shopee.vn/file/0c282b442b35386992ea2cd943b63cc9', 'Chất liệu: Nhung tăm dày mịn, thoáng mát • Chu vi nón: 56-58cm, đội thoải mái, dễ chịu • Kiểu dáng: Phù hợp cả nam và nữ. Đa phong cách, gọn nhẹ, năng động • Màu sắc: Đen, kem, hồng, nâu, xanh dương, xanh lá • Đối tượng sử dụng: người lớn và trẻ em (cả nam và nữ) • Mùa sử dụng: xuân, hạ, thu, đông • Xuất xứ: Việt Nam', 10, '2023-12-04'),
+(27, 'mu', 'Mũ Bucket 1 Mặt Thêu Hình Vịt Con Đáng Yêu Chất Vải Kaki Thoáng Mát Kiểu Dáng Nón Tai Bèo Nam Nữ Thời Trang	', 'female', 20000, 30000, 'https://cf.shopee.vn/file/c6f67caf5aa8372d5ee49533f9139149', 'HÔNG TIN CHI TIẾT SẢN PHẨM NÓN TAI BÈO: ✔️ Màu sắc: ĐEN, TRẮNG ✔️ Chất vải kaki cotton dày mịn, thoáng mát ✔️ Size vòng đầu 54-57cm, chiều cao nón 9cm, vành rộng 6,5cm ✔️ Form Unisex dành cho cả nam và nữ, thiết kế kiểu nón bucket trơn đơn giản có 2 mặt dễ thay đổi màu rất tiện lợi', 2, '2023-12-04'),
+(28, 'mu', 'Mũ Lưỡi Trai Nam Nữ Jussy Fashion Nón Lưỡi Trai Memorie Chất Vải Nhung Gân Nhiều Màu Đẹp Phong Cách Nón Unisex	', 'male', 30000, 45000, 'https://lzd-img-global.slatic.net/g/p/e86f6d8c8995f41a441a404ef9804957.jpg_720x720q80.jpg_.webp', 'Nón Kết Hàn Quốc Dễ Thương ra mắt với nhiều màu: Đen, Trắng, Kaki, Vàng, Đỏ, Xanh, Be ✔️ Phù hợp với bất kỳ outfit nào của các bạn gái nữ tính, đáng yêu. ✔️ Chất liệu Nón lưỡi trai memorie: Chất vải nhung gân mềm mịn, thoáng mát, thấm hút mồ hôi, không hầm bí ✔️ Thông số sản phẩm: Size vòng đầu mũ lưỡi trai nhung từ 54-58 cm. Mũ Có Khóa Inox phía sau giúp tăng/giảm size nón tùy vòng đầu của bạn. .', 0, '2023-12-04'),
+(29, 'mu', 'Nón tai bèo chống nắng in hình luffy trong phim hoạt hình one piece', 'male', 40000, 50000, 'https://cf.shopee.vn/file/41161c5776c229f13a008e32b588c072_tn	', 'Mũ tai bèo chủ đề hoạt hình One Piece 100% cotton, mũ thêu chất lượng cao cho nam / mũ cho nữ, dropshipping Danh mục sản phẩm: Mũ tai bèo Chất liệu: Cotton Phương pháp dệt: satin Các yếu tố phổ biến: in Thích hợp : trung tính / nam và nữ áp dụng Nhóm tuổi: tuổi trưởng thành', 10, '2023-12-04'),
+(30, 'mu', 'Nón Beret  Phong Cách Hàn Quốc Thời Trang Xuân Thu Cho Nữ', 'female', 120000, 150000, 'https://cf.shopee.vn/file/abb311452c413260d6160c6e9afb17b6_tn', 'Hoa văn: Chữ cái; Chi tiết phong cách: Thêu; Đối tượng áp dụng: Chung; Phong cách: Mũ Peaked; Vải Tên thường: Bông; Nhãn hiệu: SZSYST;', 10, '2023-12-04'),
+(31, 'mu', 'mũ cối lao động hàng việt nam chất lượng cao', 'male', 60000, 100000, 'https://vn-live-01.slatic.net/p/3df11154757e894ea0ff75ec3a653633.png', '-chất dày dặn, đội mát mưa, rất bền -phù hợp cả trời nắng và mưa', 10, '2023-12-04'),
+(32, 'balo', 'Balo Ulzzang Hàn Quốc Thời Trang Đi Học Đi Chơi Phối Lưới Chống Thấm', 'female', 40000, 70000, 'https://cf.shopee.vn/file/9fbddeaf66b8e9a2d49bcc36a516c0dd', '​​​​​​​THÔNG TIN SẢN PHẨM: - ️Chất liệu : Vải Polyester 600PU Chống Thấm - ️Màu sắc : Đen, trắng, hồng, xanh da trời Shop có phận loại chi tiết màu vui lòng khách chọn ạ - Kích thước 35x40cm , đựng được tài liệu size A4 lớn, thích hợp cho học sinh, sinh viên thậm chí là người trẻ trung, năng động đang đi làm.', 0, '2023-12-04'),
+(33, 'balo', 'Balo Nữ Thời Trang Yuumy YBA28 Nữ Tính Nhiều Màu - Không Thấm Nước - Không Bong Tróc', 'female', 300000, 400000, 'https://cf.shopee.vn/file/sg-11134201-22090-54437uvf7uhv70', 'Chất liệu: da tổng hợp cao cấp (mềm mại, không bong tróc, không thấm nước ) Kích thước: dài 20.5cm x rộng 12cm x cao 27cm Trọng lượng: 762g Số ngăn: 4 ngăn ( 1 ngăn chính, 3 ngăn phụ ) Màu sắc: Màu Bò Đậm, Màu Bò Nhạt, Màu Nâu, Màu Đen Công dụng: balo phù hợp đi chơi, đi làm, đi shopping, đi du lịch. Bảo Hành: 1 Năm Thương hiệu: YUUMY Xuất xứ: Made in Viet Nam', 10, '2023-12-04'),
+(34, 'balo', 'Balo ulzzang hàn quốc kiểu dáng mới Fumiao', 'female', 120000, 200000, 'https://cf.shopee.vn/file/9a26b95653670d14a49b768bad9d2979', 'Kích thước : 32x11x43cm Chất liệu : là vải polyester không thấm nước Đặc điểm chung của vải chống thấm nước Nhờ lớp tráng chống thấm nước này mà vải có những tính năng vượt trội như: - Ít bám bẩn, dễ vệ sinh - Không nhăn nhàu - Có khả năng cản gió - Chống thấm nước vượt trội Màu sắc : nhiều màu Phù hợp với các bạn đi học và đi du lịch', 15, '2023-12-04'),
+(35, 'balo', 'Balo Thời Trang Da Mini Thắt Nơ Túi Đon Giản', 'female', 40000, 50000, 'https://salt.tikicdn.com/cache/w1200/ts/product/c0/fe/cf/ee1d9d349cf96a7b7d049557ce8910fb.jpg', 'chất liệu : bố canvas _ có 2 ngăn _ có khóa kéo và lót', 0, '2023-12-04'),
+(36, 'balo', 'Balo nữ dễ thương cặp đi học đựng laptop giá rẻ ba lô du lịch thời trang vải dù', 'female', 40000, 70000, 'https://cf.shopee.vn/file/81dc3ee7852219121c2b2ed9352baab4', 'Kích thước cặp đi học nữ: rộng 35cm* cao 42cm* dày 12cm. - Ba lô nữ đi học được làm từ chất liệu: vải canvas 420. - Cặp đi học có 4 màu : Đen, hồng, xanh, tím. - Style: balo nữ giá rẻ phong cách thời trang Hàn Quốc Balo nữ dễ thương không những đi học mà còn đi chơi, đi du lịch được', 10, '2023-12-04'),
+(37, 'balo', 'BALO CHỐNG TRỘM PHONG CÁCH HÀN QUỐC CHO NỮ', 'female', 65000, 125000, 'https://cf.shopee.vn/file/de566fa44fe87dc3fc37e3bae5cae0ef', 'Kích thước ba lô: 31 X 34 X 14 cm Kích thước quai xách: 8cm Từ nay ra đường khỏi lo mất đồ nữa,\r\n    có em balo chống trộm này đi đâu cũng yên tâm hẳn luôn ạ', 0, '2023-12-04'),
+(38, 'balo', 'Ba Lô Đi Học / Du Lịch Sức Chứa Lớn Đơn Giản Phong Cách Nhật Bản', 'male', 160000, 205000, 'https://cf.shopee.vn/file/8517a2506855bfe540a454b07c42a0e9', 'Kết cấu: canvas Những người có thể áp dụng: Chung Yếu tố phổ biến: may Tình trạng sản phẩm: Còn mới\r\n\r\nKiểu đóng: Dây kéo Kích thước máy tính: 15 feet Hiệu suất chống thấm nước: không thấm nước Chất liệu lót: polyester', 8, '2023-12-04'),
 (39, 'balo', 'Balo nam nữ, Balo du lịch vải dù ulzzang đi học thời trang chống nước nhiều ngăn đựng laptop cao cấp Hàn Quốc', 'male', 149000, 200000, 'https://vn-test-11.slatic.net/p/d4cdce0f86b36879ea84bfdc59b6491e.jpg', 'Mô tả chi tiết sản phẩm: Balo Du Lịch - Balo Laptop - Balo đi học,\r\n    đi chơi,\r\n    đi phượt: - Chất liệu: Vải Polyester Vải balo cực dày dặn,\r\n    chống thấm nước - Màu sắc: 5 màu lựa chọn: Đen - Bee - Xanh lá - Xanh Dương - Đỏ - Kích thước - Cấu tạo: + Balo gồm 1 ngăn chính : 43 X 30 X 13cm - Trọng lượng 0,\r\n    5kglớn,\r\n    bên trong có ngăn để laptop riêng biệt,\r\n    chắc chắn + Bên ngoài có 1 ngăn TO và 2 ngăn nhỏ +2 Cạnh bên balo có 2 ngăn để chai nước,\r\n    để ô....,\r\n    dây rút chắc chắn + Phía sau balo có 1 ngăn túi zip cao cấp đựng đồ dùng rất tiện lợi', 5, '2022-12-04'),
 (40, 'balo', 'Balo nữ nam nữ phong cách ulzzang hàn quốc unisex đi học đi chơi thời trang - Túi Cặp Xách phong cách Vện Hottrend', 'male', 200000, 249000, 'https://cf.shopee.vn/file/9cc780a2433bec22df5e132b1365a831', 'Balo Ulzzang Unisex LOCAL Brand Cá Tính Chống Nước Đựng Laptop + Balo được thiết kế phong cách hàn quốc.+ Màu sắc: Đen - Trắng - Xanh Rêu + Chất liệu vải Nylon trơn,\r\n    chất liệu này bền và sạch không bị bám dính bụi và ngoài ra còn chống nước.+ Đường may tỉ mỉ chắc chắn,\r\n    form túi rất đẹp.+ Kích thước: 29 * 13 * 42(cm).', 5, '2022-12-04'),
 (41, 'balo', 'Ultra Ba Lô Siêu Nhẹ Thời Trang Dành Cho Nam', 'male', 160000, 200000, 'https://cf.shopee.vn/file/0d5e0e3a83117d961129f4f6e9fb95cb_tn', 'Thương hiệu: Locoer / Luke Kangaroo\r\nXuất xứ: Tỉnh Hà Bắc\r\nKết cấu: Oxford spun Đối tượng áp dụng: chung Các yếu tố phổ biến: mũi khâu chắc chắn\r\nPhong cách: học viện\r\nĐóng cửa: đóng zip\r\nKích thước: 15 inch Hiệu suất chống thấm nước: chống thấm nước\r\nVật liệu lót: polyester(sợi polyester)', 8, '2022-12-04'),
@@ -204,15 +207,16 @@ CREATE TABLE `replies` (
   `phone` int(20) DEFAULT NULL,
   `reply` text NOT NULL,
   `created_at` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `replies`
 --
 
 INSERT INTO `replies` (`id`, `name`, `email`, `phone`, `reply`, `created_at`) VALUES
-(2, 'Ngô Nhật Thiên', 'ngonhatthien2@gmail.com', 0, 'Shop tuyệt vời', '2022-12-04'),
-(7, 'Ngô Nhật Thiên', 'ngonhatthien2@gmail.com', 369359121, 'Cần cải thiện thêm', '2022-12-05');
+(2, 'Trần Nhân Nghĩa', 'nghiatranvth@gmail.com', 0, 'Shop tuyệt vời', '2023-12-04'),
+(7, 'hehehe', 'hehe@gmail.com', 369359121, 'Cần cải thiện thêm', '2023-12-05'),
+(8, 'Nghĩa béo', 'hahahaha@gmail.com', 123123123, 'Shop quá tuyệt!! 10 điểm', '2023-12-06');
 
 --
 -- Indexes for dumped tables
@@ -256,13 +260,13 @@ ALTER TABLE `replies`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `cmt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cmt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -280,7 +284,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `replies`
 --
 ALTER TABLE `replies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
