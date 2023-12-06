@@ -41,6 +41,15 @@ if (isset($_POST['submit'])) {
         $error = "Phone is required";
         $errorClass = '';
     } else {
+
+        $_POST['firstName'] = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
+        $_POST['lastName'] = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
+        $_POST['gender'] = filter_var($_POST['gender'], FILTER_SANITIZE_STRING);
+        $_POST['address'] = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
+        $_POST['phone'] = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
+        $_POST['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $_POST['password'] = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+
         //create sql
         $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
         $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
