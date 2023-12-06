@@ -1,2 +1,2 @@
-# fashionista-clone
-Clone of FASHIONISTA online shopping website
+# fashionista-online-shopping
+FASHIONISTA online shopping website
